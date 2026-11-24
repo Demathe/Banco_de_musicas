@@ -19,8 +19,11 @@ def criar_tabelas():
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     titulo TEXT NOT NULL,
     letra text
+    significado TEXT,
+    história TEXT,
+    visualizaões INTEGER,
+    albuns_id INTEGER NOT NULL REFERENCES albuns(id),
+    visualizacoes INTEGER);
     
     """
     )
-
-criar_tabelas()
