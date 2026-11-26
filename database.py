@@ -1,6 +1,7 @@
 import sqlite3
 
 conn = sqlite3.connect('musicas.db')
+conn.execute("PRAGMA foreign_keys = ON")
 
 def criar_tabelas():
     conn.executescript(
@@ -18,12 +19,13 @@ def criar_tabelas():
     CREATE TABLE IF NOT EXISTS musicas(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     titulo TEXT NOT NULL,
-    letra text
+    letra TEXT,
     significado TEXT,
-    história TEXT,
-    visualizaões INTEGER,
+    historia TEXT,
+    visualizacoes INTEGER,
     albuns_id INTEGER NOT NULL REFERENCES albuns(id),
     visualizacoes INTEGER);
     
     """
     )
+criar_tabelas()
